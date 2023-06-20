@@ -7,7 +7,7 @@
 # documentation.
 
 # Nombre del action
-name: Java CI with Maven
+name: Build and Test Java Project
 
 # En qué eventos y ramas se activa
 on:
@@ -22,23 +22,23 @@ jobs:
     runs-on: ubuntu-latest # Sistema operativo en el que se ejecuta el action
 
     steps:
-    - uses: actions/checkout@v3
-    # Configura Java
-    - name: Set up JDK 19
-      uses: actions/setup-java@v3
-      with:
-        java-version: '19'
-        distribution: 'temurin'
-        cache: maven
-    # Ejecuta los tests
-    - name: Test
-      run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
-    # Genera un informe
-    - name: Report
-      uses: dorny/test-reporter@v1
-      if: always()
-      with:
-        name: Maven Tests
-        path: target/surefire-reports/*.xml
-        reporter: java-junit
-        fail-on-error: true
+      - uses: actions/checkout@v3
+      # Configura Java
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11' # Cambiar a la versión de Java deseada, por ejemplo, '8', '11', '17', etc.
+          distribution: 'temurin'
+          cache: maven
+      # Ejecuta los tests
+      - name: Test
+        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+      # Genera un informe
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
