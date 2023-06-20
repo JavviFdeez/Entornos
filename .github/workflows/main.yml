@@ -7,7 +7,7 @@
 # documentation.
 
 # Nombre del action
-name: Java CI with Maven
+name: Build and Test Java Project
 
 # En qué eventos y ramas se activa
 on:
