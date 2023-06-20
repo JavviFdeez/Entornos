@@ -14,10 +14,10 @@
     </properties>
 
     <dependencies>
-        <!-- Dependencia de JUnit -->
+        <!-- Dependencia de JUnit 5 -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
@@ -45,18 +45,12 @@
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <testFailureIgnore>true</testFailureIgnore>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>org.apache.maven.report.junit5.JUnit5XmlReportGeneratingListener</value>
-                        </property>
-                    </properties>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
-                        <version>5.7.2</version>
+                        <version>${junit.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
