@@ -1,4 +1,5 @@
-package src.test.java;
+package com.test;
+
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -7,11 +8,11 @@ import org.junit.Test;
 public class CalculadoraTest {
 
     // Definimos el objeto para usarlo en todos los tests
-    static src.main.java.Calculadora miCalculadora;
+    static com.main.Calculadora miCalculadora;
 
     @BeforeClass
     public static void setUpClass() {
-        miCalculadora = new main.java.Calculadora();
+        miCalculadora = new com.main.Calculadora();
     }
 
     @Test
