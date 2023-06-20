@@ -9,7 +9,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <junit.version>5.7.2</junit.version>
+        <junit.version>5.8.1</junit.version>
         <jacoco.version>0.8.7</jacoco.version>
     </properties>
 
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.2</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -32,7 +32,7 @@
                 <version>3.8.1</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
+                    <target>3.8.1</target>
                 </configuration>
             </plugin>
 
@@ -43,17 +43,14 @@
                 <version>3.0.0-M7</version>
                 <configuration>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                    <includes>
-                        <include>**/Test*.java</include>
-                        <include>**/*Test.java</include>
-                        <include>**/*Tests.java</include>
-                    </includes>
+                    <testSourceDirectory>src/test/com/example/tests</testSourceDirectory>
+                    <testClassesDirectory>${project.build.directory}/test-classes</testClassesDirectory>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-api</artifactId>
-                        <version>5.7.2</version>
+                        <version>${junit.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
